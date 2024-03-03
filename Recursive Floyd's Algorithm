@@ -242,3 +242,40 @@
  "nbformat": 4,
  "nbformat_minor": 5
 }
+import unittest
+
+class TestFloydAlgorithm(unittest.TestCase):
+    def test_floyd_recursive(self):
+        distance = [
+            [0, 5, float('inf'), 10],
+            [float('inf'), 0, 3, float('inf')],
+            [float('inf'), float('inf'), 0, 1],
+            [float('inf'), float('inf'), float('inf'), 0]
+        ]
+        expected_result = [
+            [0, 5, 8, 9],
+            [float('inf'), 0, 3, 4],
+            [float('inf'), float('inf'), 0, 1],
+            [float('inf'), float('inf'), float('inf'), 0]
+        ]
+        floyd_recursive(distance)
+        self.assertEqual(distance, expected_result)
+
+    def test_floyd_iterative(self):
+        distance = [
+            [0, 5, float('inf'), 10],
+            [float('inf'), 0, 3, float('inf')],
+            [float('inf'), float('inf'), 0, 1],
+            [float('inf'), float('inf'), float('inf'), 0]
+        ]
+        expected_result = [
+            [0, 5, 8, 9],
+            [float('inf'), 0, 3, 4],
+            [float('inf'), float('inf'), 0, 1],
+            [float('inf'), float('inf'), float('inf'), 0]
+        ]
+        floyd_iterative(distance)
+        self.assertEqual(distance, expected_result)
+
+if __name__ == '__main__':
+    unittest.main()
